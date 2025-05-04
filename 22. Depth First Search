@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+void dfs(int graph[][10], int n, int start, bool visited[]) {
+    visited[start] = true;
+    printf("%d ", start);
+    for (int i = 0; i < n; i++) {
+        if (graph[start][i] == 1 && !visited[i]) {
+            dfs(graph, n, i, visited);
+        }
+    }
+}
+
+int main() {
+    int graph[5][5] = {{0, 1, 0, 0, 1}, {1, 0, 1, 0, 0}, {0, 1, 0, 1, 0}, {0, 0
